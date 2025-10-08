@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Álax Fernando</title>
+    <!-- Ligação com o CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Fundo de partículas -->
+    <div id="tsparticles"></div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>𝔹𝔼𝕄-𝕍𝕀ℕ𝔻𝕆 𝔸𝕆 𝕄𝔼𝕌 ℙ𝕆ℝ𝕋𝔼𝔽𝕆́𝕃𝕀𝕆</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção de Apresentação (Hero) -->
+    <section id="apresentacao">
+        <h2 id="typing"></h2>
+        <p>Estudante de Sistemas de Informação e apaixonado por tecnologia e inovação.
+        Tenho experiência em projetos acadêmicos de programação, com foco em desenvolvimento web 
+        e redes de computadores.</p>
+
+        <a href="#projetos" class="btn-projetos">Ver meus projetos ↓</a>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Minha trajetória acadêmica tem sido marcada pelo interesse em tecnologia e inovação.
+        Gosto de desenvolver projetos que envolvem programação e redes, explorando ferramentas que possam trazer soluções para o dia a dia. 
+        Me considero dedicado, curioso e sempre disposto a aprender, com grande interesse em trabalhar na área de desenvolvimento de software.</p>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos">
+        <h2>Projetos</h2>
+        <ul>
+            <li>
+                <h3>Projeto 1 – Portfólio em HTML</h3>
+                <p>Desenvolvimento de um site pessoal utilizando apenas HTML, com organização em seções e navegação estruturada.</p>
+            </li>
+            <li>
+                <h3>Projeto 2 – Rede no Packet Tracer</h3>
+                <p>Configuração de uma rede com endereçamento IP, servidores e simulação de acesso à internet para praticar conceitos de TCP/IP.</p>
+            </li>
+            <li>
+                <h3>Projeto 3 – Semáforo Inteligente</h3>
+                <p>Protótipo de um sistema de controle de tráfego com sensores ultrassônicos, desenvolvido em ambiente acadêmico para otimizar a fluidez do trânsito.</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Email: <a href="mailto:alaxfernando947@gmail.com">alaxfernando947@gmail.com</a></p>
+        <p>Telefone: (31) 99346-3699</p>
+
+        <form>
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label for="mensagem">Mensagem:</label><br>
+            <textarea id="mensagem" name="mensagem"></textarea><br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 ÁLAX FERNANDO. Todos os direitos reservados.</p>
+        <p>
+            <a href="https://github.com/alaxfernando947-png" target="_blank">GitHub</a> |
+            <a href="https://linkedin.com/in/alaxfernando947" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Efeito de digitação
+        const text = "Olá, eu sou Álax Fernando De Freitas Nunes";
+        const typingElement = document.getElementById("typing");
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                typingElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 80);
+            } else {
+                typingElement.classList.add("cursorOff");
+            }
+        }
+        window.addEventListener("load", typeEffect);
+
+        // Seções aparecem suavemente
+        const sections = document.querySelectorAll("section");
+        function revealSections() {
+            const triggerBottom = window.innerHeight * 0.8;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerBottom) {
+                    section.classList.add("visible");
+                }
+            });
+        }
+        window.addEventListener("scroll", revealSections);
+        revealSections();
+    </script>
+
+    <script>
+        // tsParticles
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            particles: {
+                number: { value: 80, density: { enable: true, area: 800 } },
+                color: { value: ["#00ffff", "#ff00ff", "#ffff00"] },
+                shape: { type: "circle" },
+                opacity: { value: 0.8, random: true },
+                size: { value: { min: 1, max: 4 } },
+                links: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 1.5, direction: "none", random: true, straight: false, outModes: { default: "out" } }
+            },
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "repulse" },
+                    onClick: { enable: true, mode: "push" }
+                },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
+            },
+            detectRetina: true
+        });
+    </script>
+</body>
+</html>
